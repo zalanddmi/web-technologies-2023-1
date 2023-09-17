@@ -61,6 +61,7 @@
 
 .form_class {
     background-image: url(form.jpg);
+    width: 500px;
 }
 
 .bread {
@@ -82,4 +83,8 @@
 .bread li a {
     color: #000000;
     text-decoration: none;
+}
+
+label {
+    color: #FFFFFF;
 }
