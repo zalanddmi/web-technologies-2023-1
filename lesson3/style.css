@@ -24,21 +24,22 @@ header {
 
 .header_block h3 {
     display: inline;
-    color: blue;
+    color: #2D66EE;
     margin-left: 20px;
+    text-transform: uppercase;
 }
 
 .header_block ul {
     list-style-type: none;
-    color: blue;
+    color: #2D66EE;
 }
 
 .header_block ol li {
-    color: blue;
+    color: #2D66EE;
 }
 
 .header_block ol li a {
-    color: blue;
+    color: #2D66EE;
 }
 
 .header_block li {
@@ -62,6 +63,62 @@ nav a {
 
 main {
     flex: 1;
+}
+
+.desc_cons_block {
+    margin: 75px 100px 125px 100px;
+    width: 50%;
+}
+
+.desc_block h3 {
+    font-size: 48px;
+}
+
+.desc_block span {
+    color: #2D66EE;
+}
+
+.cons_block {
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.cons_block h4 {
+    font-size: 18px;
+    padding: 30px 20px;
+}
+
+.cons_form_block form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 30px 20px;
+}
+
+.cons_form_block label {
+    display: block;
+    color: gray;
+    font-size: 14px;
+}
+
+.cons_form_block input[type="text"],
+.cons_form_block input[type="tel"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #98A2B3;
+}
+
+.cons_form_block input[type="text"]:focus,
+.cons_form_block input[type="tel"]:focus {
+    outline: none;
+}
+
+.cons_form_block input[type="submit"] {
+    background-color: #2D66EE;
+    color: white;
+    border-radius: 5px;
+    padding: 0 25px;
 }
 
 .footer_block {
