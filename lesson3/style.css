@@ -176,3 +176,37 @@ main {
     margin-bottom: 5px;
     height: 25px;
 }
+
+.tech_block {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.use_tech_block {
+    margin: 25px 100px;
+    width: 50%;
+}
+
+.use_tech_block h3 {
+    font-size: 48px;
+}
+
+.use_tech_block ul {
+    list-style-type: none;
+}
+
+.use_tech_block li {
+    display: inline;
+    color: #344054;
+}
+
+.use_tech_block li:not(:last-child)::after {
+    content: "/";
+    margin: 0 5px;
+    color: #2D66EE;
+}
+
+.dev_sys_block {
+    width: 50%;
+}
