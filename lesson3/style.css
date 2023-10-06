@@ -183,6 +183,10 @@ main {
     flex-direction: row;
 }
 
+.tech_block ul {
+    list-style-type: none;
+}
+
 .use_tech_block {
     margin: 25px 100px;
     width: 50%;
@@ -190,10 +194,6 @@ main {
 
 .use_tech_block h3 {
     font-size: 48px;
-}
-
-.use_tech_block ul {
-    list-style-type: none;
 }
 
 .use_tech_block li {
@@ -208,5 +208,32 @@ main {
 }
 
 .dev_sys_block {
+    margin: 75px 100px;
     width: 50%;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+}
+
+.dev_sys_block li {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.dev_sys_block a {
+    text-decoration: none;
+    color: #1D2939;
+}
+
+.dev_sys_block a:hover {
+    text-decoration: underline;
+    text-decoration-color: #2D66EE;
+    color: #101828;
+}
+
+.dev_sys_block li::after {
+    content: ">";
+    color: #2D66EE;
+    margin: 0 10px;
 }
