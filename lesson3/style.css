@@ -223,13 +223,13 @@ main {
 
 .dev_sys_block a {
     text-decoration: none;
-    color: #1D2939;
+    color: #3f5066;
 }
 
 .dev_sys_block a:hover {
     text-decoration: underline;
     text-decoration-color: #2D66EE;
-    color: #101828;
+    color: black;
 }
 
 .dev_sys_block li::after {
