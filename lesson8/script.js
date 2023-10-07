@@ -83,8 +83,34 @@ function searchSumTarget(nums, target) {
 
 console.log('Задание 4')
 
-const nums = [2, 7, 11, 15]
+const nums = [2, 7, 11, 15];
 const target = 9;
 
 const result4 = searchSumTarget(nums, target);
 console.log(result4);
+
+// Задание 5
+
+function findPrefix(array) {
+    let prefix = array[0];
+    for (let index = 1; index < array.length; index++) {
+        let word = array[index];
+        while (word.indexOf(prefix) != 0) {
+            prefix = prefix.substring(0, prefix.length - 1);
+            if (prefix.length < 2) {
+                return "";
+            }
+        }
+    }
+    return prefix;
+}
+
+console.log('Задание 5');
+
+const strs1 = ["цветок", "поток", "хлопок"];
+const result51 = findPrefix(strs1);
+console.log(strs1);
+
+const strs2 = ["собака", "гоночная машина", "машина"];
+const result52 = findPrefix(strs1);
+console.log(strs2);
