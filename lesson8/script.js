@@ -58,10 +58,33 @@ function spinWords(str) {
     return words.join(' ');
 }
 
-console.log('Задание 3')
+console.log('Задание 3');
 
 const result1 = spinWords("Привет от Legacy");
 console.log(result1); // тевирП от ycageL
 
 const result2 = spinWords("This is a test");
 console.log(result2); // This is a test
+
+// Задание 4
+
+function searchSumTarget(nums, target) {
+    let result = [];
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] == target) {
+                result.push(i, j);
+                return result;
+            }
+        }
+    }
+    return result;
+}
+
+console.log('Задание 4')
+
+const nums = [2, 7, 11, 15]
+const target = 9;
+
+const result4 = searchSumTarget(nums, target);
+console.log(result4);
