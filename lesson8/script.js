@@ -92,25 +92,46 @@ console.log(result4);
 // Задание 5
 
 function findPrefix(array) {
-    let prefix = array[0];
-    for (let index = 1; index < array.length; index++) {
-        let word = array[index];
-        while (word.indexOf(prefix) != 0) {
-            prefix = prefix.substring(0, prefix.length - 1);
-            if (prefix.length < 2) {
-                return "";
+    if (array.length === 0) {
+        return "";
+    }
+
+    if (array.length === 1) {
+        return array[0];
+    }
+
+    let short_str = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i].length < short_str.length) {
+            short_str = array[i];
+        }
+    }
+
+    const short_str_len = short_str.length;
+    for (let i = short_str_len; i >= 2; i--) {
+        for (let j = 0; j <= short_str_len - i; j++) {
+            let substr = short_str.substring(j, j + i);
+            let check = true;
+            for (let k = 0; k < array.length; k++) {
+                if (array[k].indexOf(substr) === -1) {
+                    check = false;
+                    break;
+                }
+            }
+            if (check) {
+                return substr;
             }
         }
     }
-    return prefix;
+    return "";
 }
 
 console.log('Задание 5');
 
 const strs1 = ["цветок", "поток", "хлопок"];
 const result51 = findPrefix(strs1);
-console.log(strs1);
+console.log(strs1); // "ок"
 
 const strs2 = ["собака", "гоночная машина", "машина"];
 const result52 = findPrefix(strs1);
-console.log(strs2);
+console.log(strs2); // ""
