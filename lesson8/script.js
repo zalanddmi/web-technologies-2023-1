@@ -130,8 +130,8 @@ console.log('Задание 5');
 
 const strs1 = ["цветок", "поток", "хлопок"];
 const result51 = findPrefix(strs1);
-console.log(strs1); // "ок"
+console.log(result51); // "ок"
 
 const strs2 = ["собака", "гоночная машина", "машина"];
-const result52 = findPrefix(strs1);
-console.log(strs2); // ""
+const result52 = findPrefix(strs2);
+console.log(result52); // ""
