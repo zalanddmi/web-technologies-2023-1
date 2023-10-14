@@ -110,16 +110,16 @@ function findPrefix(array) {
     const short_str_len = short_str.length;
     for (let i = short_str_len; i >= 2; i--) {
         for (let j = 0; j <= short_str_len - i; j++) {
-            let substr = short_str.substring(j, j + i);
+            let prefix = short_str.substring(j, j + i);
             let check = true;
             for (let k = 0; k < array.length; k++) {
-                if (array[k].indexOf(substr) === -1) {
+                if (array[k].indexOf(prefix) === -1) {
                     check = false;
                     break;
                 }
             }
             if (check) {
-                return substr;
+                return prefix;
             }
         }
     }
