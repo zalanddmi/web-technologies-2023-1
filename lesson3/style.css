@@ -9,7 +9,7 @@ body {
 header {
     position: sticky;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 100;
 }
 
@@ -27,6 +27,10 @@ header {
     color: #2D66EE;
     margin-left: 20px;
     text-transform: uppercase;
+}
+
+.hamburger {
+    display: none;
 }
 
 .header_block ul {
@@ -61,6 +65,10 @@ nav a {
     color: black;
 }
 
+.header_mail {
+    display: none;
+}
+
 main {
     flex: 1;
 }
@@ -72,7 +80,7 @@ main {
 }
 
 .desc_cons_block {
-    margin: 75px 100px 125px 100px;
+    padding: 75px 100px 125px 100px;
     width: 60%;
 }
 
@@ -123,12 +131,14 @@ main {
 .cons_form_block input[type="submit"] {
     background-color: #2D66EE;
     color: white;
+    border: none;
     border-radius: 5px;
     padding: 0 25px;
 }
 
 .screenshots_block {
-    width: 40%;
+    max-width: 100%;
+    margin-right: 25px;
 }
 
 .footer_block {
@@ -242,7 +252,72 @@ main {
 
 @media screen and (max-width: 768px) {
 
-    .li_header {
+    .header_block {
+        margin: 10px 0;
+    }
+
+    .header_block h3 {
+        margin-left: 10px;
+    }
+
+    .header_block li {
         display: none;
+    }
+
+    .header_mail {
+        display: inline;
+        font-size: 14px;
+        margin-right: 20px;
+    }
+
+    .header_mail img {
+        height: 20px;
+        margin-right: 5px;
+    }
+
+    .hamburger {
+        position: relative;
+        display: block;
+        width: 50px;
+        height: 25px;
+        margin: 30px;
+        margin-right: 75px;
+        border-top: 8px solid #2D66EE;
+        border-bottom: 8px solid #2D66EE;
+    }
+
+    .hamburger:before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 0px;
+        width: 100%;
+        border-top: 8px solid #2D66EE;
+    }
+
+    .desc_cons_block {
+        margin: 0;
+    }
+
+    .desc_block h3 {
+        font-size: 36px;
+    }
+
+    .cons_form_block form {
+        margin-left: -10px;
+        margin-top: -30px;
+        flex-direction: column;
+    }
+
+    .cons_form_block label:not(:first-child) {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    .cons_form_block input[type="submit"] {
+        width: 150px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
     }
 }
