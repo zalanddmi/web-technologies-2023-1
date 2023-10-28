@@ -5,120 +5,130 @@ if (document.readyState === 'loading') {
 }
 
 function init() {
-    const data = {
-        name: 'Каталог товаров',
-        hasChildren: true,
-        items: [
-            {
-                name: 'Мойки',
-                hasChildren: true,
-                items: [
-                    {
-                        name: 'Ulgran1',
-                        hasChildren: true,
-                        items: [
-                            {
-                                name: 'SMT1',
-                                hasChildren: false,
-                                items: []
-                            },
-                            {
-                                name: 'SMT2',
-                                hasChildren: false,
-                                items: []
-                            }
-                        ]
-                    },
-                    {
-                        name: 'Ulgran2',
-                        hasChildren: true,
-                        items: [
-                            {
-                                name: 'SMT3',
-                                hasChildren: false,
-                                items: []
-                            },
-                            {
-                                name: 'SMT4',
-                                hasChildren: false,
-                                items: []
-                            }
-                        ]
-                    }
-                ]
-            },{
-                name: 'Фильтры',
-                hasChildren: true,
-                items: [
-                    {
-                        name: 'Ulgran3',
-                        hasChildren: true,
-                        items: [
-                            {
-                                name: 'SMT5',
-                                hasChildren: false,
-                                items: []
-                            },
-                            {
-                                name: 'SMT6',
-                                hasChildren: false,
-                                items: []
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
+    const data = [
+        {
+            name: 'Каталог товаров',
+            hasChildren: true,
+            items: [
+                {
+                    name: 'Мойки',
+                    hasChildren: true,
+                    items: [
+                        {
+                            name: 'Ulgran1',
+                            hasChildren: true,
+                            items: [
+                                {
+                                    name: 'SMT1',
+                                    hasChildren: false,
+                                    items: []
+                                },
+                                {
+                                    name: 'SMT2',
+                                    hasChildren: false,
+                                    items: []
+                                }
+                            ]
+                        },
+                        {
+                            name: 'Ulgran2',
+                            hasChildren: true,
+                            items: [
+                                {
+                                    name: 'SMT3',
+                                    hasChildren: false,
+                                    items: []
+                                },
+                                {
+                                    name: 'SMT4',
+                                    hasChildren: false,
+                                    items: []
+                                }
+                            ]
+                        }
+                    ]
+                }, {
+                    name: 'Фильтры',
+                    hasChildren: true,
+                    items: [
+                        {
+                            name: 'Ulgran3',
+                            hasChildren: true,
+                            items: [
+                                {
+                                    name: 'SMT5',
+                                    hasChildren: false,
+                                    items: []
+                                },
+                                {
+                                    name: 'SMT6',
+                                    hasChildren: false,
+                                    items: []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 
 
     const items = new ListItems(document.getElementById('list-items'), data)
 
 
-  /*  items.render()*/
-    items.init()
-
-    /*console.log(items.renderTest(data));*/
+    items.render()
 
     function ListItems(el, data) {
         this.el = el;
         this.data = data;
 
-        this.init = function () {
-            const parents = this.el.querySelectorAll('[data-parent]')
-
-            parents.forEach(parent => {
-                const open = parent.querySelector('[data-open]')
-
-                open.addEventListener('click', () => this.toggleItems(parent) )
-            })
-        }
-
         this.render = function () {
-            this.el.insertAdjacentHTML('beforeend', this.renderParent(this.data))
-        }
+            this.renderParent(this.data, this.el);
+        };
 
-        this.renderParent = function (data) {
-            //проверка всех элементов на hasChildren
-            //если hasChildren, то запускаем renderParent
-            //если !hasChildren, то запускаем renderChildren
-            //возвращает рендер родительского элемента
+        this.renderParent = function (data, el) {
+            if (Array.isArray(data) && data.length > 0) {
+                data.forEach((d) => {
+                    const rootDiv = document.createElement("div");
+                    rootDiv.classList.add("list-item", "list-item_open");
 
-        }
+                    const headDiv = document.createElement("div");
+                    headDiv.classList.add("list-item__inner");
 
-        this.renderChildren = function (data) {
-            //вовзращает рендер элемента без вложенности
-        }
+                    const imgArrow = document.createElement("img");
+                    imgArrow.classList.add("list-item__arrow");
+                    imgArrow.src = "img/chevron-down.png";
 
-        this.toggleItems = function (parent) {
-            parent.classList.toggle('list-item_open')
-        }
+                    if (d.hasChildren) {
+                        imgArrow.addEventListener("click", () =>
+                            rootDiv.classList.toggle("list-item_open")
+                        );
+                    }
 
-/*        this.renderTest = function (data) {
-            return `
-            <div class="test">${data.name}</div>
-            `
-        }*/
+                    headDiv.appendChild(imgArrow);
+
+                    const imgFolder = document.createElement("img");
+                    imgFolder.classList.add("list-item__folder");
+                    imgFolder.src = "img/folder.png";
+                    headDiv.appendChild(imgFolder);
+
+                    const titleSpan = document.createElement("span");
+                    titleSpan.innerText = d.name;
+                    headDiv.appendChild(titleSpan);
+
+                    rootDiv.appendChild(headDiv);
+
+                    if (d.hasChildren) {
+                        const childDiv = document.createElement("div");
+                        childDiv.classList.add("list-item__items");
+                        this.renderParent(d.items, childDiv);
+                        rootDiv.appendChild(childDiv);
+                    }
+
+                    el.appendChild(rootDiv);
+                });
+            }
+        };
     }
-
 }
