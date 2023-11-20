@@ -104,6 +104,8 @@ function init() {
                         imgArrow.addEventListener("click", () =>
                             rootDiv.classList.toggle("list-item_open")
                         );
+                    } else {
+                        imgArrow.style.visibility = "hidden"
                     }
 
                     headDiv.appendChild(imgArrow);

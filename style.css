@@ -23,12 +23,16 @@
   width: 2em;
 }
 
-.list-item_open > .list-item__items {
+.list-item_open>.list-item__items {
   display: block;
 }
 
-.list-item_open > .list-item__inner .list-item__arrow {
+.list-item_open>.list-item__inner .list-item__arrow {
   transform: rotate(180deg);
+}
+
+.list-item_close {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
