@@ -66,6 +66,11 @@ export const TicTacToe = {
         if (this.checkForWin()) {
           // изменение статуса игры
           this.setGameEndStatus()
+          // вывод информации о победителе
+          setTimeout(() => {
+            alert('Победил ' + this.getCurrentTurnValue())
+          })
+          return
         }
 
         // проверка на наличие пустых блоков
@@ -80,12 +85,7 @@ export const TicTacToe = {
         }
 
         // проверка статуса игры
-        if (this.isGameEnd) {
-          // вывод информации о победителе
-          setTimeout(() => {
-            alert('Победил ' + this.getCurrentTurnValue())
-          })
-        } else {
+        if (!this.isGameEnd) {
           // изменить значение текущего хода в объекте
           this.changeTurnValue()
           // изменить значение текущего хода в дом дереве
